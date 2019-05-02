@@ -11,6 +11,8 @@ service: serverless-hello-world
 provider:
   name: aws
   runtime: nodejs8.10
+  stage: dev
+  region: ap-southeast-1
 
 # The `functions` block defines what code to deploy
 functions:
