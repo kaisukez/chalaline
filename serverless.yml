@@ -24,5 +24,19 @@ functions:
           path: hello-world
           method: get
           cors: true
+  createBranch:
+    handler: branch/handler.createBranch
+    events:
+      - http:
+          path: create-branch
+          method: post
+          cors: true
+  removeBranch:
+    handler: branch/handler.removeBranch
+    events:
+      - http:
+          path: remove-branch
+          method: post
+          cors: true
 plugins:
   - serverless-offline
