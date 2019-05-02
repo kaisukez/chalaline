@@ -25,14 +25,14 @@ functions:
           method: get
           cors: true
   createBranch:
-    handler: branch/handler.createBranch
+    handler: branch/createBranch.createBranch
     events:
       - http:
           path: create-branch
           method: post
           cors: true
   removeBranch:
-    handler: branch/handler.removeBranch
+    handler: branch/removeBranch.removeBranch
     events:
       - http:
           path: remove-branch
