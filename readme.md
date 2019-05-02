@@ -31,6 +31,10 @@ setx AWS_DEFAULT_PROFILE chalaline
 
 ## Test on localhost
 ```
+serverless offline
+```
+or
+```
 sls offline
 ```
 
