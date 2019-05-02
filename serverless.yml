@@ -24,6 +24,7 @@ functions:
           path: hello-world
           method: get
           cors: true
+          
   createBranch:
     handler: branch/createBranch.createBranch
     events:
@@ -43,6 +44,35 @@ functions:
     events:
       - http:
           path: list-all-branch
+          method: get
+          cors: true
+
+  addProductToDatabase:
+    handler: products/addProductToDatabase.addProductToDatabase
+    events:
+      - http:
+          path: add-product-to-database
+          method: post
+          cors: true
+  addProductToBranch:
+    handler: products/addProductToBranch.addProductToBranch
+    events:
+      - http:
+          path: add-product-to-branch
+          method: post
+          cors: true
+  listAllProducts:
+    handler: products/listAllProducts.listAllProducts
+    events:
+      - http:
+          path: list-all-products
+          method: get
+          cors: true
+  listPublishedProducts:
+    handler: products/listPublishedProducts.listPublishedProducts
+    events:
+      - http:
+          path: list-published-products
           method: get
           cors: true
 plugins:
