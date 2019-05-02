@@ -75,5 +75,28 @@ functions:
           path: list-published-products
           method: get
           cors: true
+
+  registerAsAdmin:
+    handler: users/registerAsAdmin.registerAsAdmin
+    events:
+      - http:
+          path: register-as-admin
+          method: post
+          cors: true
+  addStaff:
+    handler: users/addStaff.addStaff
+    events:
+      - http:
+          path: add-staff
+          method: post
+          cors: true
+  listStaffs:
+    handler: users/listStaffs.listStaffs
+    events:
+      - http:
+          path: list-staffs
+          method: get
+          cors: true
+
 plugins:
   - serverless-offline
