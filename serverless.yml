@@ -38,5 +38,12 @@ functions:
           path: remove-branch
           method: post
           cors: true
+  listAllBranch:
+    handler: branch/listAllBranch.listAllBranch
+    events:
+      - http:
+          path: list-all-branch
+          method: get
+          cors: true
 plugins:
   - serverless-offline
