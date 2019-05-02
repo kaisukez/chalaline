@@ -32,11 +32,7 @@ setx AWS_DEFAULT_PROFILE chalaline
 
 ## Test on localhost
 ```
-serverless offline
-```
-or
-```
-sls offline
+serverless offline --port 5555
 ```
 
 ## Deploy
