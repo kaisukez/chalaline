@@ -1,1 +1,107 @@
-[{"branches": [{"branchName": "aaaaaa", "stock": [{"notiQuantity": 5, "productID": "24a427a7-d0a6-4c80-a92f-d8e41698e4bb", "quantity": 57}, {"notiQuantity": 8, "productID": "f7e702c2-2650-4857-b60e-1ec6b617c6ea", "quantity": 99}, {"notiQuantity": 8, "productID": "750225e6-1bb4-41eb-9c58-91c604ba6546", "quantity": 50}, {"notiQuantity": 10, "productID": "04b9939a-df98-4d61-aae2-3c813d2d0d23", "quantity": 64}, {"notiQuantity": 4, "productID": "9ad504af-8fca-4d04-87f3-78e274eb82c8", "quantity": 58}, {"notiQuantity": 8, "productID": "288c5b45-92de-4fa6-92d2-123946789a83", "quantity": 99}, {"notiQuantity": 6, "productID": "10019469-ecfc-4a77-9436-1dd9e4ae67e2", "quantity": 73}, {"notiQuantity": 1, "productID": "ad4e8011-7717-4404-b80a-c43ccd68b1ca", "quantity": 93}, {"notiQuantity": 10, "productID": "aea233cf-cf61-41f6-8562-3b388cc54c98", "quantity": 100}, {"notiQuantity": 5, "productID": "cd852cbe-1873-469b-ab57-87a1b83cf6f3", "quantity": 50}]}, {"branchName": "aaaaab", "stock": [{"notiQuantity": 5, "productID": "da2630cc-8289-4c11-9ca8-46f59c3d720e", "quantity": 77}, {"notiQuantity": 1, "productID": "1a1a52c9-b2bc-455c-8ce0-062dcfc222b9", "quantity": 88}, {"notiQuantity": 9, "productID": "3e19c015-e5a5-417f-a4fe-2b9a1a2ed09e", "quantity": 95}, {"notiQuantity": 4, "productID": "434f5be6-0477-404e-877a-3b9a27fcca89", "quantity": 54}, {"notiQuantity": 5, "productID": "d34aebc5-6057-4716-a802-8d5e1a9915fa", "quantity": 50}, {"notiQuantity": 8, "productID": "b7808597-595d-4c9c-b364-6a9acc4a90f2", "quantity": 55}, {"notiQuantity": 4, "productID": "1b102663-58a4-4bfd-8316-459fd94a7168", "quantity": 82}, {"notiQuantity": 8, "productID": "bff4cb33-1774-4244-875b-9dd454a3f6ac", "quantity": 73}, {"notiQuantity": 1, "productID": "ec5067e4-4a0d-4607-80cc-472ece7b0915", "quantity": 98}, {"notiQuantity": 5, "productID": "668f9008-feab-4f79-98c5-1130cffef80c", "quantity": 72}]}, {"branchName": "aaaaac", "stock": [{"notiQuantity": 3, "productID": "7570f9c2-9fa9-4a7b-9541-eb08b70553bb", "quantity": 50}, {"notiQuantity": 7, "productID": "362ca9ac-decd-4342-a570-fcc5ac4b467d", "quantity": 90}, {"notiQuantity": 5, "productID": "64bfd1de-95ee-4f62-a7d1-a056d8a9e8f4", "quantity": 70}, {"notiQuantity": 4, "productID": "5fc8b461-af8d-4e89-a85e-40053355901f", "quantity": 93}, {"notiQuantity": 2, "productID": "5504efa3-fb79-47ad-a727-2be0c515c847", "quantity": 93}, {"notiQuantity": 8, "productID": "e11299da-e8cf-48d6-9403-07ee3c705473", "quantity": 71}, {"notiQuantity": 3, "productID": "048d3adf-0301-4ebc-b118-4780134fff8d", "quantity": 96}, {"notiQuantity": 9, "productID": "753219c5-67b4-45b6-9231-9e3abf91cc2a", "quantity": 82}, {"notiQuantity": 6, "productID": "8dd5be75-09da-457a-8bb8-238a4ebcb0c7", "quantity": 63}, {"notiQuantity": 4, "productID": "ec7940ed-43f5-4c43-aaf7-5791150d2c38", "quantity": 59}]}, {"branchName": "aaaaaa", "stock": [{"notiQuantity": 1, "productID": "b64da092-11b5-4c1b-973a-55ab1a8b31e2", "quantity": 100}, {"notiQuantity": 10, "productID": "d02ecd53-0860-4f50-964e-3c2f6d4dadf7", "quantity": 81}, {"notiQuantity": 1, "productID": "8acf79e7-ab69-4c15-9ac0-0099d4b108ff", "quantity": 68}, {"notiQuantity": 1, "productID": "8017eafc-a8f5-479f-a0f3-5cfc382a01dd", "quantity": 60}, {"notiQuantity": 9, "productID": "5ed894fa-590d-416d-bdc9-a0b1204c73fb", "quantity": 87}, {"notiQuantity": 7, "productID": "f3b71eed-ff92-4464-8859-11bb1061e6ac", "quantity": 82}, {"notiQuantity": 1, "productID": "4a23b444-1110-4b9c-91fe-af0a314633f7", "quantity": 62}, {"notiQuantity": 10, "productID": "d48fc15f-8555-486c-9d85-085d9dc6ade2", "quantity": 65}, {"notiQuantity": 5, "productID": "195d1aa0-b6ba-4b74-a501-87d575db7445", "quantity": 63}, {"notiQuantity": 3, "productID": "bd3af45f-4879-4980-ab8d-62d2b5ce78be", "quantity": 74}]}], "products": [{"isPublic": true, "price": 94, "productID": "24a427a7-d0a6-4c80-a92f-d8e41698e4bb"}, {"isPublic": true, "price": 70, "productID": "f7e702c2-2650-4857-b60e-1ec6b617c6ea"}, {"isPublic": true, "price": 46, "productID": "750225e6-1bb4-41eb-9c58-91c604ba6546"}, {"isPublic": true, "price": 57, "productID": "04b9939a-df98-4d61-aae2-3c813d2d0d23"}, {"isPublic": true, "price": 53, "productID": "9ad504af-8fca-4d04-87f3-78e274eb82c8"}], "storeID": "aa104520-88d5-4fbf-a3ad-b70c9dca7a9f", "storeName": "aaaaa"}, {"branches": [{"branchName": "aaaaab", "stock": [{"notiQuantity": 10, "productID": "be4a06eb-34d6-4ef1-b61e-01cdc8c4ef49", "quantity": 84}, {"notiQuantity": 2, "productID": "f69c2b1f-1391-4e0b-a3de-b4fd7fa1daba", "quantity": 53}, {"notiQuantity": 2, "productID": "7b364ca5-297d-4f13-b97e-0c699c6af977", "quantity": 99}, {"notiQuantity": 4, "productID": "826bcc45-1ff7-4797-99de-a6d25d1d8da1", "quantity": 73}, {"notiQuantity": 7, "productID": "632fc3d5-120c-4c4e-9790-ad43f0b062ff", "quantity": 88}, {"notiQuantity": 1, "productID": "ddf31d10-a8e0-40ba-818a-829f64c30b8b", "quantity": 81}, {"notiQuantity": 6, "productID": "7165faf4-3bbc-4e02-b1ab-873812e893cd", "quantity": 53}, {"notiQuantity": 10, "productID": "3e4ed54e-8f82-4e7c-b01f-6c5bf1acaaeb", "quantity": 99}, {"notiQuantity": 3, "productID": "cc7914bf-7dde-4b00-b4b4-ee427726e9cf", "quantity": 59}, {"notiQuantity": 9, "productID": "ba746f4c-de04-4199-9b30-dfe94a931a48", "quantity": 90}]}, {"branchName": "aaaaac", "stock": [{"notiQuantity": 7, "productID": "fd048e58-e9eb-418a-a3fa-3b48985db22b", "quantity": 83}, {"notiQuantity": 3, "productID": "26b7f7c7-5e64-48af-8942-fd4e71c2d167", "quantity": 77}, {"notiQuantity": 5, "productID": "b9f00579-2ed2-423e-a3e4-cda618937777", "quantity": 80}, {"notiQuantity": 10, "productID": "da963528-4635-4a0f-b808-4a552dbabfa8", "quantity": 72}, {"notiQuantity": 10, "productID": "566d2619-1919-48ac-9d53-f41d6e6f6d76", "quantity": 77}, {"notiQuantity": 8, "productID": "614f4d6d-79f0-4134-95f9-68a0dbb1e233", "quantity": 92}, {"notiQuantity": 6, "productID": "6a245aed-7c9c-409a-a158-6874708d4ea4", "quantity": 60}, {"notiQuantity": 6, "productID": "a580e113-d076-4b1d-b72c-2e58f8d8c8b2", "quantity": 71}, {"notiQuantity": 3, "productID": "06220137-88ef-42fb-a8d7-ca15e575a841", "quantity": 84}, {"notiQuantity": 4, "productID": "dea4e547-3132-4a50-aa51-a2338c7497f8", "quantity": 96}]}, {"branchName": "aaaaaa", "stock": [{"notiQuantity": 9, "productID": "6234d3bf-ba03-45c9-860d-8b2bf7615eb6", "quantity": 94}, {"notiQuantity": 4, "productID": "7d3f0a11-08b4-427c-91c8-f2d6baa2b272", "quantity": 89}, {"notiQuantity": 8, "productID": "aaaf6ae7-3a0d-463b-b3d4-18f04981bac3", "quantity": 71}, {"notiQuantity": 3, "productID": "053cdd55-3b78-4d8f-83e1-39d694298d34", "quantity": 96}, {"notiQuantity": 8, "productID": "8fe20351-c569-416c-942e-85bb5ad2026e", "quantity": 86}, {"notiQuantity": 7, "productID": "3fdf640d-d440-4e67-af4a-1e0793d3223b", "quantity": 71}, {"notiQuantity": 8, "productID": "5a8c92fc-fb04-4a5f-a8cc-174db39dc6f1", "quantity": 76}, {"notiQuantity": 6, "productID": "bea16ed7-aaaf-4468-8613-81e350b0531b", "quantity": 55}, {"notiQuantity": 1, "productID": "3e6da2f2-db85-4ad8-8fce-2654bc4bb132", "quantity": 99}, {"notiQuantity": 3, "productID": "d4023c9b-33a1-4e0f-a47a-ac5418e4fb89", "quantity": 96}]}, {"branchName": "aaaaab", "stock": [{"notiQuantity": 2, "productID": "fd84c452-b485-4532-a907-a41e40d7a288", "quantity": 53}, {"notiQuantity": 9, "productID": "86992c75-7de6-4e44-adb8-43d35a25fb46", "quantity": 69}, {"notiQuantity": 7, "productID": "0783ff1c-fc21-4535-a0cc-c1e9665ae8e4", "quantity": 97}, {"notiQuantity": 6, "productID": "876ae742-2beb-4c8a-9b31-ef53772ace87", "quantity": 60}, {"notiQuantity": 7, "productID": "d47a3c66-53f8-4ffb-ab08-736a6d84953f", "quantity": 70}, {"notiQuantity": 7, "productID": "1db27550-00dd-48cf-9e5c-52b8e75c596f", "quantity": 66}, {"notiQuantity": 7, "productID": "de974ec5-1411-4f9e-9950-37832cb998b2", "quantity": 70}, {"notiQuantity": 7, "productID": "203c9a8c-2eb3-4be0-8448-0cf027288a03", "quantity": 76}, {"notiQuantity": 5, "productID": "6e07c5c9-c282-4052-989e-302bf8ae2a86", "quantity": 59}, {"notiQuantity": 7, "productID": "f83cd9df-8977-481e-b95b-ffd1be625e40", "quantity": 93}]}], "products": [{"isPublic": false, "price": 19, "productID": "288c5b45-92de-4fa6-92d2-123946789a83"}, {"isPublic": false, "price": 13, "productID": "10019469-ecfc-4a77-9436-1dd9e4ae67e2"}, {"isPublic": false, "price": 78, "productID": "ad4e8011-7717-4404-b80a-c43ccd68b1ca"}, {"isPublic": true, "price": 71, "productID": "aea233cf-cf61-41f6-8562-3b388cc54c98"}, {"isPublic": true, "price": 6, "productID": "cd852cbe-1873-469b-ab57-87a1b83cf6f3"}], "storeID": "44128f6a-0a0f-4bfa-b4db-294137516c66", "storeName": "aaaab"}, {"branches": [{"branchName": "aaaaac", "stock": [{"notiQuantity": 6, "productID": "ed591101-8a0e-4401-9316-314b2bef410b", "quantity": 67}, {"notiQuantity": 10, "productID": "6cdaba7e-2602-440f-9820-680d1be992d4", "quantity": 78}, {"notiQuantity": 3, "productID": "7a379e19-ebff-4a85-9884-c1386c13d431", "quantity": 72}, {"notiQuantity": 1, "productID": "0757ace2-02a4-4904-88d1-bb96ca4bc540", "quantity": 85}, {"notiQuantity": 3, "productID": "6b550340-3704-43c1-980f-a7d299adb141", "quantity": 87}, {"notiQuantity": 5, "productID": "b358ad4f-3011-4500-9fbc-942fa2edfb7e", "quantity": 50}, {"notiQuantity": 7, "productID": "4363a6c9-2db1-497f-8a32-e3d3657f6cb5", "quantity": 67}, {"notiQuantity": 4, "productID": "19d8700f-727e-4ab6-811c-763c5e9cc387", "quantity": 91}, {"notiQuantity": 6, "productID": "8e56ccf8-22ec-4334-ab06-42310e5e1bed", "quantity": 67}, {"notiQuantity": 6, "productID": "2e27d990-90e0-4075-a736-9cdd535d297b", "quantity": 52}]}, {"branchName": "aaaaaa", "stock": [{"notiQuantity": 1, "productID": "af5e6495-4f97-4228-9b9e-fb8f376b362d", "quantity": 65}, {"notiQuantity": 6, "productID": "4ff4ffa0-534a-43ed-afb0-c4517d11c9b4", "quantity": 79}, {"notiQuantity": 10, "productID": "44133354-140c-442f-89ee-84bedcc3ebfb", "quantity": 77}, {"notiQuantity": 4, "productID": "dc19fb0f-8e11-4c6b-b89d-af952fa6049b", "quantity": 88}, {"notiQuantity": 5, "productID": "3b84033d-fa6c-4595-91a9-4d37802c1015", "quantity": 55}, {"notiQuantity": 8, "productID": "e8e22c9d-3c60-4360-a7f8-be78cf6a662a", "quantity": 96}, {"notiQuantity": 4, "productID": "640b287f-1a40-42e9-8173-b20b4239461d", "quantity": 87}, {"notiQuantity": 10, "productID": "2b3b3c39-2ac7-471e-af62-b4a1c0ca084a", "quantity": 52}, {"notiQuantity": 4, "productID": "9168d72a-2c1e-4bd2-842c-f5a686cdfb2e", "quantity": 64}, {"notiQuantity": 2, "productID": "5275d898-1c94-460d-aa50-15acdfb5edd9", "quantity": 68}]}, {"branchName": "aaaaab", "stock": [{"notiQuantity": 2, "productID": "24a427a7-d0a6-4c80-a92f-d8e41698e4bb", "quantity": 80}, {"notiQuantity": 9, "productID": "f7e702c2-2650-4857-b60e-1ec6b617c6ea", "quantity": 79}, {"notiQuantity": 10, "productID": "750225e6-1bb4-41eb-9c58-91c604ba6546", "quantity": 73}, {"notiQuantity": 9, "productID": "04b9939a-df98-4d61-aae2-3c813d2d0d23", "quantity": 100}, {"notiQuantity": 10, "productID": "9ad504af-8fca-4d04-87f3-78e274eb82c8", "quantity": 86}, {"notiQuantity": 10, "productID": "288c5b45-92de-4fa6-92d2-123946789a83", "quantity": 80}, {"notiQuantity": 6, "productID": "10019469-ecfc-4a77-9436-1dd9e4ae67e2", "quantity": 70}, {"notiQuantity": 6, "productID": "ad4e8011-7717-4404-b80a-c43ccd68b1ca", "quantity": 78}, {"notiQuantity": 7, "productID": "aea233cf-cf61-41f6-8562-3b388cc54c98", "quantity": 77}, {"notiQuantity": 6, "productID": "cd852cbe-1873-469b-ab57-87a1b83cf6f3", "quantity": 73}]}, {"branchName": "aaaaac", "stock": [{"notiQuantity": 4, "productID": "da2630cc-8289-4c11-9ca8-46f59c3d720e", "quantity": 97}, {"notiQuantity": 8, "productID": "1a1a52c9-b2bc-455c-8ce0-062dcfc222b9", "quantity": 90}, {"notiQuantity": 3, "productID": "3e19c015-e5a5-417f-a4fe-2b9a1a2ed09e", "quantity": 81}, {"notiQuantity": 7, "productID": "434f5be6-0477-404e-877a-3b9a27fcca89", "quantity": 55}, {"notiQuantity": 4, "productID": "d34aebc5-6057-4716-a802-8d5e1a9915fa", "quantity": 54}, {"notiQuantity": 8, "productID": "b7808597-595d-4c9c-b364-6a9acc4a90f2", "quantity": 83}, {"notiQuantity": 6, "productID": "1b102663-58a4-4bfd-8316-459fd94a7168", "quantity": 100}, {"notiQuantity": 9, "productID": "bff4cb33-1774-4244-875b-9dd454a3f6ac", "quantity": 92}, {"notiQuantity": 8, "productID": "ec5067e4-4a0d-4607-80cc-472ece7b0915", "quantity": 81}, {"notiQuantity": 10, "productID": "668f9008-feab-4f79-98c5-1130cffef80c", "quantity": 62}]}], "products": [{"isPublic": false, "price": 100, "productID": "da2630cc-8289-4c11-9ca8-46f59c3d720e"}, {"isPublic": true, "price": 13, "productID": "1a1a52c9-b2bc-455c-8ce0-062dcfc222b9"}, {"isPublic": false, "price": 85, "productID": "3e19c015-e5a5-417f-a4fe-2b9a1a2ed09e"}, {"isPublic": true, "price": 58, "productID": "434f5be6-0477-404e-877a-3b9a27fcca89"}, {"isPublic": true, "price": 26, "productID": "d34aebc5-6057-4716-a802-8d5e1a9915fa"}], "storeID": "b63f79bc-e360-463e-bc23-0ca218eb2871", "storeName": "aaaac"}]
+[
+    {
+      "branchName": "aaaaaa",
+      "stocks": [
+        {
+          "isPublic": true,
+          "notiQuantity": 10,
+          "price": 69,
+          "productID": "9f6970f6-d194-48d0-a71b-48773f0d276c",
+          "quantity": 94
+        },
+        {
+          "isPublic": true,
+          "notiQuantity": 9,
+          "price": 31,
+          "productID": "0f5b443b-fe31-4c4a-bce7-4aacc6db5550",
+          "quantity": 74
+        },
+        {
+          "isPublic": true,
+          "notiQuantity": 5,
+          "price": 37,
+          "productID": "b82bd7ac-0dee-4049-8191-b9d97bad7163",
+          "quantity": 89
+        },
+        {
+          "isPublic": false,
+          "notiQuantity": 10,
+          "price": 16,
+          "productID": "5aff3b07-f1e0-4359-922e-e2a6183e7b35",
+          "quantity": 45
+        }
+      ],
+      "storeID": "44d0e698-1b27-4aed-9ad4-1ef3e93d5100",
+      "storeName": "aaaaa"
+    },
+    {
+      "branchName": "aaaaab",
+      "stocks": [
+        {
+          "isPublic": false,
+          "notiQuantity": 3,
+          "price": 71,
+          "productID": "a3b95512-58ba-4dfe-b5b9-64c70739e107",
+          "quantity": 21
+        },
+        {
+          "isPublic": false,
+          "notiQuantity": 6,
+          "price": 24,
+          "productID": "42015434-96e1-4f3c-91a2-66dc93834ca7",
+          "quantity": 43
+        },
+        {
+          "isPublic": true,
+          "notiQuantity": 4,
+          "price": 21,
+          "productID": "01290572-836c-4d92-a7ce-4fbdb319945d",
+          "quantity": 94
+        },
+        {
+          "isPublic": true,
+          "notiQuantity": 2,
+          "price": 80,
+          "productID": "47a4278e-e509-4b3d-9a65-7ac490cf22ae",
+          "quantity": 57
+        }
+      ],
+      "storeID": "e7375563-bf7f-4923-951f-6502cc94f7e2",
+      "storeName": "aaaab"
+    },
+    {
+      "branchName": "aaaaac",
+      "stocks": [
+        {
+          "isPublic": true,
+          "notiQuantity": 2,
+          "price": 80,
+          "productID": "16bc02d7-dd59-4187-904c-b35b584cfb20",
+          "quantity": 22
+        },
+        {
+          "isPublic": false,
+          "notiQuantity": 9,
+          "price": 26,
+          "productID": "c0666697-9e30-4e85-9fc8-371ab2c719ab",
+          "quantity": 21
+        },
+        {
+          "isPublic": false,
+          "notiQuantity": 1,
+          "price": 29,
+          "productID": "9813fdca-7046-41f9-8e64-803c9983347c",
+          "quantity": 56
+        },
+        {
+          "isPublic": true,
+          "notiQuantity": 2,
+          "price": 41,
+          "productID": "784b8623-447e-4eb9-9b6c-f57194de72e8",
+          "quantity": 24
+        }
+      ],
+      "storeID": "d2598ddd-4655-4694-90d5-5307e1f7c0a0",
+      "storeName": "aaaac"
+    }
+  ]

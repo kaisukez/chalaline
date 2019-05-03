@@ -31,50 +31,28 @@
         "maxLength": 5,
         "unique": true
       },
-      "branches": {
+      "branchName": {
+        "type": "string",
+        "minLength": 5,
+        "maxLength": 6,
+        "unique": true
+      },
+      "stocks": {
         "type": "array",
         "size": 4,
         "arrayContent": {
           "type": "object",
           "objectContent": {
-            "branchName": {
-              "type": "string",
-              "minLength": 5,
-              "maxLength": 6,
-              "unique": true
+            "notiQuantity": {
+              "type": "int",
+              "maxInt": 10,
+              "minInt": 1
             },
-            "stock": {
-              "type": "array",
-              "size": 10,
-              "arrayContent": {
-                "type": "object",
-                "objectContent": {
-                  "quantity": {
-                    "type": "int",
-                    "maxInt": 100,
-                    "minInt": 50
-                  },
-                  "notiQuantity": {
-                    "type": "int",
-                    "maxInt": 10,
-                    "minInt": 1
-                  },
-                  "productID": {
-                    "type": "ref",
-                    "id": 10
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "products": {
-        "type": "array",
-        "size": 5,
-        "arrayContent": {
-          "type": "object",
-          "objectContent": {
+            "quantity": {
+              "type": "int",
+              "maxInt": 100,
+              "minInt": 20
+            },
             "productID": {
               "type": "ref",
               "id": 10
@@ -82,7 +60,7 @@
             "price": {
               "type": "int",
               "maxInt": 100,
-              "min": 10
+              "minInt": 10
             },
             "isPublic": {
               "type": "boolean"
