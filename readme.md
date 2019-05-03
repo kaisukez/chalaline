@@ -17,17 +17,19 @@ Then you can setup account with this method below or use [other method](https://
 serverless config credentials --provider aws --profile chalaline --key <your-access-key-id> --secret <your-secret-access-key>
 ```
 
-And you must set default profile every time you open terminal
+Then set your key every time you open terminal (for working with dynamodb)
 
 
-on linux, mac, unix
+for linux, macOS
 ```
-export AWS_DEFAULT_PROFILE=chalaline
+export AWS_ACCESS_KEY_ID=<your-access-key-id>
+export AWS_SECRET_ACCESS_KEY=<your-secret-access-key>
 ```
 
-on windows cmd
+for windows
 ```
-setx AWS_DEFAULT_PROFILE chalaline
+set AWS_ACCESS_KEY_ID=<your-access-key-id>
+set AWS_SECRET_ACCESS_KEY=<your-secret-access-key>
 ```
 
 ## Test on localhost
@@ -38,4 +40,9 @@ serverless offline --port 5555
 ## Deploy
 ```
 serverless deploy
+```
+
+## Remove all lambda and dynamodb table
+```
+
 ```

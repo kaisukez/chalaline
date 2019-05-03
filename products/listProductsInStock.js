@@ -1,33 +1,35 @@
 const { query } = require('../helpers/index')
 
-module.exports.listAllBranch = async (event, context, callback) => {
+module.exports.listProductsInStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
-  const { storeName } = JSON.parse(event.body)
+  const { storeName, branchName } = JSON.parse(event.body)
 
   const params = {
     TableName,
-    KeyConditionExpression: '#storeName = :storeName',
+    KeyConditionExpression: '#storeName = :storeName and #branchName = :branchName',
     ExpressionAttributeNames: {
-      '#storeName': 'storeName' 
+      '#storeName': 'storeName',
+      '#branchName': 'branchName'
     },
     ExpressionAttributeValues: {
-      ':storeName': storeName
+      ':storeName': storeName,
+      ':branchName': branchName
     },
-    ProjectionExpression: 'branchName'
+    ProjectionExpression: 'stocks'
   }
 
   const result = await query(params)
 
-  const branches = result.Items.map(branch => branch.branchName)
-  
+  const stocks = result.Items[0].stocks
+
   const response = {
     statusCode: 200,
     headers: {
       'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
     body: JSON.stringify({
-      branches
+      stocks
     }),
   }
 

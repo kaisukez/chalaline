@@ -10,12 +10,14 @@ service: chalaline-serverless-lambda
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
+  profile: chalaline
   runtime: nodejs8.10
   stage: dev
   region: ap-southeast-1
   environment:
     STORE_TABLE: Store
-    PRODUCT_TABLE: Products
+    PRODUCT_TABLE: Product
+    REGION: ap-southeast-1
 
 # The `functions` block defines what code to deploy
 functions:
@@ -47,7 +49,7 @@ functions:
     events:
       - http:
           path: list-all-branch
-          method: get
+          method: post
           cors: true
 
   addProductToDatabase:
@@ -57,25 +59,32 @@ functions:
           path: add-product-to-database
           method: post
           cors: true
-  addProductToBranch:
-    handler: products/addProductToBranch.addProductToBranch
+  addProductToStock:
+    handler: products/addProductToStock.addProductToStock
     events:
       - http:
-          path: add-product-to-branch
+          path: add-product-to-stock
           method: post
           cors: true
-  listAllProducts:
-    handler: products/listAllProducts.listAllProducts
+  listProductsInDatabase:
+    handler: products/listProductsInDatabase.listProductsInDatabase
     events:
       - http:
-          path: list-all-products
+          path: list-products-in-database
           method: get
           cors: true
-  listPublishedProducts:
-    handler: products/listPublishedProducts.listPublishedProducts
+  listProductsInStock:
+    handler: products/listProductsInStock.listProductsInStock
     events:
       - http:
-          path: list-published-products
+          path: list-products-in-stock
+          method: post
+          cors: true
+  listPublicProducts:
+    handler: products/listPublicProducts.listPublicProducts
+    events:
+      - http:
+          path: list-public-products
           method: get
           cors: true
 
@@ -103,3 +112,36 @@ functions:
 
 plugins:
   - serverless-offline
+
+# resources:
+#   Resources:
+#     StoreTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: Store
+#         AttributeDefinitions:
+#           - AttributeName: storeName
+#             AttributeType: S
+#           - AttributeName: branchName
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: storeName
+#             KeyType: HASH
+#           - AttributeName: branchName
+#             KeyType: RANGE
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 5
+#           WriteCapacityUnits: 5
+#     ProductTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: Product
+#         AttributeDefinitions:
+#           - AttributeName: productID
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: productID
+#             KeyType: HASH
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 5
+#           WriteCapacityUnits: 5
