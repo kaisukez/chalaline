@@ -117,7 +117,7 @@ resources:
           - AttributeName: storeID
             KeyType: HASH
           - AttributeName: branchName
-            keyType: RANGE
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
