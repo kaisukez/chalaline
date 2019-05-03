@@ -22,7 +22,6 @@ module.exports.listProductsInStock = async (event, context, callback) => {
   const result = await query(params)
 
   const stocks = result.Items[0].stocks
-  console.log(stocks)
 
   const response = {
     statusCode: 200,
