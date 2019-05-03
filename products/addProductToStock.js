@@ -1,4 +1,26 @@
-const { update } = require('../helpers/index')
+const { query, update } = require('../helpers/index')
+
+const checkIfProductIDAlreadyExists = async (storeName, branchName, productID) => {
+  const TableName = process.env.STORE_TABLE
+
+  const params = {
+    TableName,
+    KeyConditionExpression: '#storeName = :storeName and #branchName = :branchName',
+    ExpressionAttributeNames: {
+      '#storeName': 'storeName',
+      '#branchname': 'branchName'
+    },
+    ExpressionAttributeValues: {
+      ':storeName': storeName,
+      ':branchName': branchName
+    },
+    ProjectionExpression: 'stocks'
+  }
+
+  const result = await query(params)
+
+  const stocks = result.Items[0]
+}
 
 module.exports.addProductToStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
@@ -9,6 +31,8 @@ module.exports.addProductToStock = async (event, context, callback) => {
     productID,
     ...optional
   } = JSON.parse(event.body)
+
+  // await checkIfProductIDAlreadyExists(storeName, branchName, productID)
 
   const params = {
     TableName,
