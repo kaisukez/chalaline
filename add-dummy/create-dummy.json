@@ -1,92 +1,95 @@
 [
-    {
-      "collection": "product",
-      "count": 100,
-      "content": {
-        "_id": {
-          "type": "ref",
-          "id": 10,
-          "refContent": {
-            "type": "objectId"
-          }
-        },
-        "productName": {
-          "type": "string",
-          "minLength": 6,
-          "maxLength": 7,
-          "unique": true
+  {
+    "collection": "product",
+    "count": 100,
+    "content": {
+      "productID": {
+        "type": "ref",
+        "id": 10,
+        "refContent": {
+          "type": "uuid"
         }
+      },
+      "productName": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 3,
+        "unique": true
       }
-    },
-    {
-      "collection": "store",
-      "count": 3,
-      "content": {
-        "storeName": {
-          "type": "string",
-          "minLength": 4,
-          "maxLength": 5,
-          "unique": true
-        },
-        "branches": {
-          "type": "array",
-          "size": 4,
-          "arrayContent": {
-            "type": "object",
-            "objectContent": {
-              "branchName": {
-                "type": "string",
-                "minLength": 5,
-                "maxLength": 6,
-                "unique": true
-              },
-              "stock": {
-                "type": "array",
-                "size": 10,
-                "arrayContent": {
-                  "type": "object",
-                  "objectContent": {
-                    "quantity": {
-                      "type": "int",
-                      "maxInt": 100,
-                      "minInt": 50
-                    },
-                    "notiQuantity": {
-                      "type": "int",
-                      "maxInt": 10,
-                      "minInt": 1
-                    },
-                    "productID": {
-                      "type": "ref",
-                      "id": 10
-                    }
+    }
+  },
+  {
+    "collection": "store",
+    "count": 3,
+    "content": {
+      "storeID": {
+        "type": "uuid"
+      },
+      "storeName": {
+        "type": "string",
+        "minLength": 4,
+        "maxLength": 5,
+        "unique": true
+      },
+      "branches": {
+        "type": "array",
+        "size": 4,
+        "arrayContent": {
+          "type": "object",
+          "objectContent": {
+            "branchName": {
+              "type": "string",
+              "minLength": 5,
+              "maxLength": 6,
+              "unique": true
+            },
+            "stock": {
+              "type": "array",
+              "size": 10,
+              "arrayContent": {
+                "type": "object",
+                "objectContent": {
+                  "quantity": {
+                    "type": "int",
+                    "maxInt": 100,
+                    "minInt": 50
+                  },
+                  "notiQuantity": {
+                    "type": "int",
+                    "maxInt": 10,
+                    "minInt": 1
+                  },
+                  "productID": {
+                    "type": "ref",
+                    "id": 10
                   }
                 }
               }
             }
           }
-        },
-        "products": {
-          "type": "array",
-          "size": 5,
-          "arrayContent": {
-            "type": "object",
-            "objectContent": {
-              "productID": {
-                "type": "ref",
-                "id": 10
-              },
-              "price": {
-                "type": "int",
-                "maxInt": 100,
-                "min": 10
-              },
-              "isPublic": {
-                "type": "boolean"
-              }
+        }
+      },
+      "products": {
+        "type": "array",
+        "size": 5,
+        "arrayContent": {
+          "type": "object",
+          "objectContent": {
+            "productID": {
+              "type": "ref",
+              "id": 10
+            },
+            "price": {
+              "type": "int",
+              "maxInt": 100,
+              "min": 10
+            },
+            "isPublic": {
+              "type": "boolean"
             }
           }
         }
       }
     }
-  ]
+  }
+]
