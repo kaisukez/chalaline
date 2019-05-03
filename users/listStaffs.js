@@ -1,3 +1,6 @@
+const AWS = require('aws-sdk')
+const cognito = new AWS.CognitoIdentityServiceProvider({apiVersion: '2016-04-18'})
+
 module.exports.listStaffs = async (event, context, callback) => {
   const response = {
     statusCode: 200,
@@ -6,6 +9,7 @@ module.exports.listStaffs = async (event, context, callback) => {
     },
     body: JSON.stringify({
       message: 'list staffs is not finished, feel free to write some code',
+      username:username
       // input: event,
     }),
   }
