@@ -16,7 +16,7 @@ provider:
   region: ap-southeast-1
   environment:
     STORE_TABLE: Store
-    PRODUCT_TABLE: Products
+    PRODUCT_TABLE: Product
     REGION: ap-southeast-1
 
 # The `functions` block defines what code to deploy
