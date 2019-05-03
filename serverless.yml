@@ -113,12 +113,12 @@ plugins:
 #       Properties:
 #         TableName: Store
 #         AttributeDefinitions:
-#           - AttributeName: storeID
+#           - AttributeName: storeName
 #             AttributeType: S
 #           - AttributeName: branchName
 #             AttributeType: S
 #         KeySchema:
-#           - AttributeName: storeID
+#           - AttributeName: storeName
 #             KeyType: HASH
 #           - AttributeName: branchName
 #             KeyType: RANGE

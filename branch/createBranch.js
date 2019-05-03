@@ -3,12 +3,12 @@ const { put } = require('../helpers/index')
 module.exports.createBranch = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
-  const { storeID, branchName } = JSON.parse(event.body)
+  const { storeName, branchName } = JSON.parse(event.body)
 
   const params = {
     TableName,
     Item: {
-      storeID,
+      storeName,
       branchName,
       stocks: [],
       history: [],

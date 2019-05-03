@@ -3,16 +3,16 @@ const { query } = require('../helpers/index')
 module.exports.listAllBranch = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
-  const { storeID } = JSON.parse(event.body)
+  const { storeName } = JSON.parse(event.body)
 
   const params = {
     TableName,
-    KeyConditionExpression: '#storeID = :storeID',
+    KeyConditionExpression: '#storeName = :storeName',
     ExpressionAttributeNames: {
-      '#storeID': 'storeID' 
+      '#storeName': 'storeName' 
     },
     ExpressionAttributeValues: {
-      ':storeID': storeID
+      ':storeName': storeName
     },
     ProjectionExpression: 'branchName'
   }
