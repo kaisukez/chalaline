@@ -10,12 +10,14 @@ service: chalaline-serverless-lambda
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
+  profile: chalaline
   runtime: nodejs8.10
   stage: dev
   region: ap-southeast-1
   environment:
     STORE_TABLE: Store
     PRODUCT_TABLE: Products
+    REGION: ap-southeast-1
 
 # The `functions` block defines what code to deploy
 functions:
@@ -47,7 +49,7 @@ functions:
     events:
       - http:
           path: list-all-branch
-          method: get
+          method: post
           cors: true
 
   addProductToDatabase:
@@ -100,6 +102,25 @@ functions:
           path: list-staffs
           method: get
           cors: true
+
+resources:
+  Resources:
+    StoreTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: storeID
+            AttributeType: S
+          - AttributeName: branchName
+            AttributeType: S
+        KeySchema:
+          - AttributeName: storeID
+            KeyType: HASH
+          - AttributeName: branchName
+            keyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 plugins:
   - serverless-offline

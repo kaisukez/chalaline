@@ -8,6 +8,8 @@ module.exports.removeBranch = (event, context, callback) => {
       message: 'remove branch is not finished, feel free to write some code',
       // input: event,
     }),
-  };
-  callback(null, response)
+  }
+
+  return response
+  // callback(null, response)
 }

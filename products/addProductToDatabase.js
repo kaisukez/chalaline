@@ -8,6 +8,8 @@ module.exports.addProductToDatabase = (event, context, callback) => {
       message: 'add product to database is not finished, feel free to write some code',
       // input: event,
     }),
-  };
-  callback(null, response)
+  }
+
+  return response
+  // callback(null, response)
 }

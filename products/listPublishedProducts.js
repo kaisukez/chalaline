@@ -8,6 +8,8 @@ module.exports.listPublishedProducts = (event, context, callback) => {
       message: 'list published products is not finished, feel free to write some code',
       // input: event,
     }),
-  };
-  callback(null, response)
+  }
+
+  return response
+  // callback(null, response)
 }
