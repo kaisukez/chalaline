@@ -103,24 +103,38 @@ functions:
           method: get
           cors: true
 
-resources:
-  Resources:
-    StoreTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        AttributeDefinitions:
-          - AttributeName: storeID
-            AttributeType: S
-          - AttributeName: branchName
-            AttributeType: S
-        KeySchema:
-          - AttributeName: storeID
-            KeyType: HASH
-          - AttributeName: branchName
-            KeyType: RANGE
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-
 plugins:
   - serverless-offline
+
+# resources:
+#   Resources:
+#     StoreTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: Store
+#         AttributeDefinitions:
+#           - AttributeName: storeID
+#             AttributeType: S
+#           - AttributeName: branchName
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: storeID
+#             KeyType: HASH
+#           - AttributeName: branchName
+#             KeyType: RANGE
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 5
+#           WriteCapacityUnits: 5
+#     ProductTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: Product
+#         AttributeDefinitions:
+#           - AttributeName: productID
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: productID
+#             KeyType: HASH
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 5
+#           WriteCapacityUnits: 5
