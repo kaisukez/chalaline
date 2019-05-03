@@ -9,7 +9,7 @@ module.exports.listAllStore = async (event, context, callback) => {
 
   const result = await scan(params)
 
-  const stores = result.Items
+  const stores = result.Items.map(store => store.storeName)
   
   const response = {
     statusCode: 200,
