@@ -42,7 +42,7 @@ serverless offline --port 5555
 serverless deploy
 ```
 
-## Remove all lambda and dynamodb table
+## Remove all lambda
 ```
-
+serverless remove
 ```
