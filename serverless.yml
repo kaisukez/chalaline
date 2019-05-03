@@ -51,6 +51,13 @@ functions:
           path: list-all-branch
           method: post
           cors: true
+  listAllStore:
+    handler: branch/listAllStore.listAllStore
+    events:
+      - http:
+          path: list-all-store
+          method: get
+          cors: true
 
   addProductToDatabase:
     handler: products/addProductToDatabase.addProductToDatabase
