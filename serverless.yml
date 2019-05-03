@@ -66,12 +66,19 @@ functions:
           path: add-product-to-stock
           method: post
           cors: true
-  listAllProducts:
-    handler: products/listAllProducts.listAllProducts
+  listProductsInDatabase:
+    handler: products/listProductsInDatabase.listProductsInDatabase
     events:
       - http:
-          path: list-all-products
+          path: listProductInDatabase
           method: get
+          cors: true
+  listProductsInStock:
+    handler: products/listProductsInStock.listProductsInStock
+    events:
+      - http:
+          path: listProductInDatabase
+          method: post
           cors: true
   listPublishedProducts:
     handler: products/listPublishedProducts.listPublishedProducts
