@@ -59,11 +59,11 @@ functions:
           path: add-product-to-database
           method: post
           cors: true
-  addProductToBranch:
-    handler: products/addProductToBranch.addProductToBranch
+  addProductToStock:
+    handler: products/addProductToStock.addProductToStock
     events:
       - http:
-          path: add-product-to-branch
+          path: add-product-to-stock
           method: post
           cors: true
   listAllProducts:
