@@ -1,4 +1,4 @@
-module.exports.registerAsAdmin = (event, context, callback) => {
+module.exports.registerAsAdmin = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     headers: {

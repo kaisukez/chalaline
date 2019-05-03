@@ -1,6 +1,6 @@
 const { put } = require('../helpers/index')
 
-module.exports.addProductToDatabase = (event, context, callback) => {
+module.exports.addProductToDatabase = async (event, context, callback) => {
   const TableName = process.env.PRODUCT_TABLE
 
   const { productID, productName, ...optional } = JSON.parse(event.body)

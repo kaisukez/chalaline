@@ -1,4 +1,4 @@
-module.exports.listStaffs = (event, context, callback) => {
+module.exports.listStaffs = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     headers: {

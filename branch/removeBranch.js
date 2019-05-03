@@ -1,4 +1,4 @@
-module.exports.removeBranch = (event, context, callback) => {
+module.exports.removeBranch = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     headers: {

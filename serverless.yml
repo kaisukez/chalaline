@@ -70,21 +70,21 @@ functions:
     handler: products/listProductsInDatabase.listProductsInDatabase
     events:
       - http:
-          path: listProductInDatabase
+          path: list-products-in-database
           method: get
           cors: true
   listProductsInStock:
     handler: products/listProductsInStock.listProductsInStock
     events:
       - http:
-          path: listProductInDatabase
+          path: list-products-in-stock
           method: post
           cors: true
-  listPublishedProducts:
-    handler: products/listPublishedProducts.listPublishedProducts
+  listPublicProducts:
+    handler: products/listPublicProducts.listPublicProducts
     events:
       - http:
-          path: list-published-products
+          path: list-public-products
           method: get
           cors: true
 
