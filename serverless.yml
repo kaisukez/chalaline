@@ -31,25 +31,39 @@ functions:
           cors: true
 
   createBranch:
-    handler: branch/createBranch.createBranch
+    handler: store/createBranch.createBranch
     events:
       - http:
           path: create-branch
           method: post
           cors: true
   removeBranch:
-    handler: branch/removeBranch.removeBranch
+    handler: store/removeBranch.removeBranch
     events:
       - http:
           path: remove-branch
           method: post
           cors: true
+  removeStore:
+    handler: store/removeStore.removeStore
+    events:
+      - http:
+          path: remove-store
+          method: post
+          cors: true
   listAllBranch:
-    handler: branch/listAllBranch.listAllBranch
+    handler: store/listAllBranch.listAllBranch
     events:
       - http:
           path: list-all-branch
           method: post
+          cors: true
+  listAllStore:
+    handler: store/listAllStore.listAllStore
+    events:
+      - http:
+          path: list-all-store
+          method: get
           cors: true
 
   addProductToDatabase:
@@ -85,7 +99,7 @@ functions:
     events:
       - http:
           path: list-public-products
-          method: get
+          method: post
           cors: true
 
   registerAsAdmin:
