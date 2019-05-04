@@ -8,6 +8,20 @@ const cognito = new AWS.CognitoIdentityServiceProvider({
 const poolID = require('../pool-id.json')
 const userHelper = require('../helpers/user')
 
+async function formatUsers(awsUsers) {
+  var users = []
+  // console.log(awsUsers)
+  for (var i = 0; i < awsUsers.length; i++) {
+    var awsUser = awsUsers[i]
+    // console.log(awsUser,awsUsers[i])
+    var attributes = awsUser.Attributes
+    var user = userHelper.convertToDictUser(attributes)
+    user['username'] = awsUser.Username
+    users.push(user)
+  }
+}
+
+
 async function getUsers(filter = undefined, filterAttributes = undefined) {
   // filter example --> "atributeName = \"attributeValue\""
   params = {
@@ -18,17 +32,7 @@ async function getUsers(filter = undefined, filterAttributes = undefined) {
   try {
     const input = await cognito.listUsers(params).promise()
     const awsUsers = input['Users']
-    var users = []
-    // console.log(awsUsers)
-    for (var i = 0; i < awsUsers.length; i++) {
-      var awsUser = awsUsers[i]
-      // console.log(awsUser,awsUsers[i])
-      var attributes = awsUser.Attributes
-      var user = userHelper.convertToDictUser(attributes)
-      user['username'] = awsUser.Username
-      users.push(user)
-    }
-    return users
+    return awsUsers
   } catch (err) {
     console.log(err)
   }
@@ -37,10 +41,12 @@ async function getUsers(filter = undefined, filterAttributes = undefined) {
 module.exports.listStaffs = async (event, context, callback) => {
   var msg = ''
   var users = undefined
+  var raw_users = undefined
   try {
-    const raw_users = await getUsers()
-    users = await userHelper.filterRoles(raw_users)
-    // var users = await getUsers()
+    raw_users = await getUsers()
+    var all_users = formatUsers(raw_users)
+    users = await userHelper.filterRoles(all_users)
+    // users = await getUsers()
     msg = 'LIST STAFFS SUCCESSFULL'
   } catch (err) {
     msg = `SOME ERROR OCCUR ${err}`
@@ -52,7 +58,8 @@ module.exports.listStaffs = async (event, context, callback) => {
     },
     body: JSON.stringify({
       message: msg,
-      staffs: users
+      staffs: users,
+      awsUser: raw_users
       // input: event,
     }),
   }
