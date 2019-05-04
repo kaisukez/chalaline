@@ -65,6 +65,13 @@ functions:
           path: list-all-store
           method: get
           cors: true
+  showStoreDatabase:
+    handler: store/showStoreDatabase.showStoreDatabase
+    events:
+      - http:
+          path: show-store-database
+          method: get
+          cors: true
 
   addProductToDatabase:
     handler: products/addProductToDatabase.addProductToDatabase
