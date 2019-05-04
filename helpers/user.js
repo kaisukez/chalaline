@@ -20,11 +20,12 @@ async function getUser (username) {
 
 async function filterRoles(users, roles = ['staff']) {
     let staffs = []
-    users.forEach(user => {
+    for (var i=0; i<users.length; i++) {
+        user = users[i]
         if (roles.indexOf(user['custom:custom:role']) !== -1) {
             staffs.push(user)
         }
-    });
+    }
     return staffs
 }
 
