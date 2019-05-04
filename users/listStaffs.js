@@ -36,11 +36,11 @@ async function getUsers(filter = undefined, filterAttributes = undefined) {
 
 module.exports.listStaffs = async (event, context, callback) => {
   var msg = ''
-
+  var users = undefined
   try {
-    // const raw_users = await getUsers()
-    // var users = await userHelper.filterRoles(raw_users)
-    var users = await getUsers()
+    const raw_users = await getUsers()
+    users = await userHelper.filterRoles(raw_users)
+    // var users = await getUsers()
     msg = 'LIST STAFFS SUCCESSFULL'
   } catch (err) {
     msg = `SOME ERROR OCCUR ${err}`
