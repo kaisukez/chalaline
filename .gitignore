@@ -8,4 +8,4 @@ jspm_packages
 deploy.sh
 accessKeys.json
 accessKeys.csv
-pool-id.json
+# pool-id.json
