@@ -8,17 +8,6 @@ const cognito = new AWS.CognitoIdentityServiceProvider({
 const poolID = require('../pool-id.json')
 const userHelper = require('../helpers/user')
 
-function convertToAwsUser(user) {
-  var awsUser = []
-  for (attribute in user) {
-    awsUser.push({
-      'Name': attribute,
-      'Value': user[attribute]
-    })
-  }
-  return awsUser
-}
-
 async function addUser(user,temporaryPassword='1q2w3e4r') {
   const awsUser = userHelper.convertToAwsUser(user)
   var params = {
