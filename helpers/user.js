@@ -11,7 +11,7 @@ async function getUser (username) {
             UserPoolId: poolID["UserPoolId"],
             Username: username
         }).promise()
-        console.log(user.UserAttributes)
+        // console.log(user.UserAttributes)
         return user.UserAttributes
     } catch (err) {
         console.log(err)
@@ -39,13 +39,13 @@ function convertToAwsUser(user) {
     return awsUser
 }
 
-function convertToDictUser(attributes) {
+function convertToDictUser(awsUser) {
     var user = {}
-    attributes.forEach(attribute => {
-        var key = attribute['Name']
-        var value = attribute['Value']
+    for (var i=0; i<awsUser.length; i++) {
+        var key = awsUser[i]['Name']
+        var value = awsUser[i]['Value']
         user[key]=value
-    });
+    }
     return user
 }
 
