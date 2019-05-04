@@ -18,7 +18,7 @@ async function getUser (username) {
     }
 }
 
-async function filterRoles(users, roles = ['staff']) {
+function filterRoles(users, roles = ['staff']) {
     let staffs = []
     for (var i=0; i<users.length; i++) {
         user = users[i]
@@ -42,11 +42,17 @@ function convertToAwsUser(user) {
 
 function convertToDictUser(awsUser) {
     var user = {}
-    for (var i=0; i<awsUser.length; i++) {
-        var key = awsUser[i]['Name']
-        var value = awsUser[i]['Value']
+    // for (var i=0; i<awsUser.length; i++) {
+    //     var key = awsUser[i]['Name']
+    //     var value = awsUser[i]['Value']
+    //     user[key]=value
+    // }
+    awsUser.forEach(attr => {
+        var key = attr['Name']
+        var value = attr['Value']
         user[key]=value
-    }
+
+    });
     return user
 }
 
