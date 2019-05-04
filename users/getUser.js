@@ -8,7 +8,7 @@ module.exports.getUser = async (event, context, callback) => {
         var username = input['username']
         const awsUser = await userHelper.getUser(username)
         user = userHelper.convertToDictUser(awsUser)
-        msg = `GET ${event} SUCCESSFULL`
+        msg = `GET ${username} SUCCESSFULL`
     } catch (err) {
         msg = `SOME ERROR OCCUR ${err}`
     }
@@ -19,8 +19,8 @@ module.exports.getUser = async (event, context, callback) => {
         },
         body: JSON.stringify({
             message: msg,
-            staffs: user,
-            input: JSON.stringify(event.queryStringParameters['username']),
+            user: user,
+            // input: JSON.stringify(event.queryStringParameters['username']),
         }),
     }
 
