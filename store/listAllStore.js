@@ -10,6 +10,8 @@ module.exports.listAllStore = async (event, context, callback) => {
   const result = await scan(params)
 
   const stores = result.Items.map(store => store.storeName)
+
+  const uniqueStores = [...new Set(stores)].sort()
   
   const response = {
     statusCode: 200,
@@ -17,7 +19,7 @@ module.exports.listAllStore = async (event, context, callback) => {
       'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
     body: JSON.stringify({
-      stores
+      stores: uniqueStores
     }),
   }
 
