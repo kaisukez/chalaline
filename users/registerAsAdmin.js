@@ -6,17 +6,15 @@ AWS.config.update({
 });
 const cognito = new AWS.CognitoIdentityServiceProvider({apiVersion: '2016-04-18'})
 const poolID = require('../pool-id.json')
-
-// input 
-// {
-//     'email': 'test-signin2@hotmail.com',
-//     "custom:custom:role": 'owner',
-        // 'password': 'xxxxxxx'
-// }
-// role will be owner
+const uuid = require('uuid/v4')
 
 async function signUp(user) {
-  var password = '1q2w3e4r'
+  if (Object.keys(user).indexOf('custom:custom:StoreID') === -1) {
+    user['custom:custom:StoreID'] = uuid()
+  }
+  if (Object.keys(user).indexOf('custom:custom:branchID') === -1) {
+    user['custom:custom:branchID'] = uuid()
+  }
   try {
     password = user['password']
     delete user['password']
@@ -57,7 +55,15 @@ module.exports.registerAsAdmin = async (event, context, callback) => {
     },
     body: JSON.stringify({
       message: msg,
+      params: params,
     }),
   }
   return response
 }
+
+signUp({
+  "email": "test-signin5@hotmail.com",
+  "password": "1q2w3e4r",
+  "custom:custom:StoreID" : "1"
+
+})

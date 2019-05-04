@@ -130,6 +130,13 @@ functions:
           path: list-staffs
           method: get
           cors: true
+  getUser:
+    handler: users/getUser.getUser
+    events:
+      - http:
+          path: get-user
+          method: get
+          cors: true
 
 
 plugins:
