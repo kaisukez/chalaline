@@ -21,6 +21,8 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
+        - "cognito-idp:*"
+        - "cognito-identity:*"
         - "dynamodb:*"
       Resource: "*"
 
