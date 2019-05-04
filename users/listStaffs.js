@@ -43,8 +43,8 @@ module.exports.listStaffs = async (event, context, callback) => {
   // var users = undefined
   // var raw_users = undefined
   const raw_users = await getUsers()
-  const all_users = formatUsers(raw_users)
-  const users = userHelper.filterRoles(all_users)
+  const users = formatUsers(raw_users)
+  const staffs = userHelper.filterRoles(users)
   console.log(users)
   // users = await getUsers()
   // msg = 'LIST STAFFS SUCCESSFULL'
@@ -53,12 +53,7 @@ module.exports.listStaffs = async (event, context, callback) => {
     headers: {
       'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
-    body: JSON.stringify({
-      // message: msg,
-      staffs: users,
-      awsUser: raw_users
-      // input: event,
-    }),
+    body: JSON.stringify(staffs),
   }
 
   return response
