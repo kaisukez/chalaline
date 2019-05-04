@@ -18,6 +18,11 @@ provider:
     STORE_TABLE: Store
     PRODUCT_TABLE: Product
     REGION: ap-southeast-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource: "*"
 
 # The `functions` block defines what code to deploy
 functions:
