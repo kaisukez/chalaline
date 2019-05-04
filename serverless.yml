@@ -123,21 +123,6 @@ functions:
           path: list-staffs
           method: get
           cors: true
-  login:
-    handler: users/login.login
-    events:
-      - http:
-          path: login
-          method: get
-          cors: true
-  logout:
-    handler: users/logout.logout
-    events:
-      - http:
-          path: logout
-          method: get
-          cors: true
-
 
 
 plugins:
