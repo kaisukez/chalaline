@@ -8,11 +8,23 @@ const cognito = new AWS.CognitoIdentityServiceProvider({
 const poolID = require('../pool-id.json')
 const userHelper = require('../helpers/user')
 
-async function addUser(user,temporaryPassword='1q2w3e4r') {
-  const awsUser = userHelper.convertToAwsUser(user)
+async function addUser(user) {
+  var username = user['email'].split('@')[0]
+  var temporaryPassword ='1q2w3e4r'
+  if (Object.keys(user).indexOf('username') !== -1) {
+    username = user['username']
+    delete user['username']
+  }
+  if (Object.keys(user).indexOf('custom:custom:role') === -1)
+    user['custom:custom:role'] = 'staff'
+  if (Object.keys(user).indexOf('temporaryPassword') === -1)
+      temporaryPassword = user['temporaryPassword']
+      delete user['temporaryPassword']
+
+const awsUser = userHelper.convertToAwsUser(user)
   var params = {
     UserPoolId: poolID["UserPoolId"],
-    Username: user['email'].split('@')[0],
+    Username: username,
     TemporaryPassword: temporaryPassword,
     UserAttributes:awsUser,
     ValidationData: userHelper.convertToAwsUser({
@@ -32,11 +44,9 @@ async function addUser(user,temporaryPassword='1q2w3e4r') {
 module.exports.addStaff = async (event, context, callback) => {
   var msg = undefined
   var user = JSON.parse(event.body)
-  if (Object.keys(user).indexOf('custom:custom:role') === -1)
-    user['custom:custom:role'] = 'staff'
   try {
     var params = await addUser(user)
-    msg = `ADD  ${user['email']} SUCCESSFULL`
+    msg = `ADD  ${params['Username']} SUCCESSFULL`
   } catch (err){
     msg = `SOME ERROR OCCUR ${err}`
   }
@@ -47,6 +57,7 @@ module.exports.addStaff = async (event, context, callback) => {
     },
     body: JSON.stringify({
       message: msg,
+      user:params
     }),
   }
   return response
