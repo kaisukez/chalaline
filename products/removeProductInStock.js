@@ -14,7 +14,7 @@ module.exports.removeProductInStock = async (event, context, callback) => {
         'Access-Control-Allow-Origin': '*', // Required for CORS support to work
       },
       body: JSON.stringify({
-        message: `productID[${productID}] is not exists in stock`
+        message: `productID[${productID}] doesn't exist in stock`
       }),
     }
   }
