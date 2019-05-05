@@ -13,13 +13,12 @@ module.exports.listAllBranch = async (event, context, callback) => {
     },
     ExpressionAttributeValues: {
       ':storeName': storeName
-    },
-    ProjectionExpression: 'branchName'
+    }
   }
 
   const result = await query(params)
 
-  const branches = result.Items.map(branch => branch.branchName)
+  const branches = result.Items
   
   const response = {
     statusCode: 200,
