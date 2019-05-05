@@ -32,6 +32,49 @@ const doesProductIDAlreadyExists = async (storeName, branchName, productID) => {
   return found
 }
 
+const doesProductIDExistsInProductDatabase = async productID => {
+  const TableName = process.env.PRODUCT_TABLE
+
+  const params = {
+    TableName,
+    KeyConditionExpression: '#productID = :productID',
+    ExpressionAttributeNames: {
+      '#productID': 'productID'
+    },
+    ExpressionAttributeValues: {
+      ':productID': productID
+    },
+    ProjectionExpression: 'productID'
+  }
+
+  const result = await query(params)
+  
+  return result.Count > 0
+}
+
+const addProductToProductDatabase = async (productID, productDetail) => {
+  const TableName = process.env.PRODUCT_TABLE
+
+  const params = {
+    TableName,
+    Item: {
+      productID,
+      ...productDetail
+    }
+  }
+
+  let success
+
+  try {
+    const result = await put(params)
+    success = true
+  } catch {
+    success = false
+  }
+
+  return success
+}
+
 module.exports.addProductToStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
@@ -42,7 +85,17 @@ module.exports.addProductToStock = async (event, context, callback) => {
     ...optional
   } = JSON.parse(event.body)
 
-  const found = await doesProductIDAlreadyExists(storeName, branchName, productID)
+  const productDetail = optional.productDetail
+  delete optional.productDetail
+
+  let found
+
+  found = await doesProductIDExistsInProductDatabase(productID)
+  if (!found) {
+    await addProductToProductDatabase(productID, productDetail)
+  }
+
+  found = await doesProductIDAlreadyExists(storeName, branchName, productID)
   if(found) {
     return {
       statusCode: 400,

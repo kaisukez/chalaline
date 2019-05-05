@@ -45,8 +45,7 @@ module.exports.removeStore = async (event, context, callback) => {
     try {
       const result = await _delete(params)
     } catch (error) {
-      message = `some error occur`
-      errorMessage.append(error.message)
+      errorMessage.push(error.message)
     }
   })
 

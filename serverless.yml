@@ -115,6 +115,20 @@ functions:
           path: list-public-products
           method: post
           cors: true
+  removeProductInDatabase:
+    handler: products/removeProductInDatabase.removeProductInDatabase
+    events:
+      - http:
+          path: remove-product-in-database
+          method: post
+          cors: true
+  removeProductInStock:
+    handler: products/removeProductInStock.removeProductInStock
+    events:
+      - http:
+          path: remove-product-in-stock
+          method: post
+          cors: true
 
   registerAsAdmin:
     handler: users/registerAsAdmin.registerAsAdmin
