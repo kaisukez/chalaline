@@ -6,7 +6,7 @@ module.exports.removeProductInStock = async (event, context, callback) => {
 
   const { storeName, branchName, productID } = JSON.parse(event.body)
 
-  const indexToDelete = await findIndexOfProductInStock(storeName, branchName, productID)
+  const { index: indexToDelete } = await findIndexOfProductInStock(storeName, branchName, productID)
   if (indexToDelete === -1) {
     return {
       statusCode: 400,

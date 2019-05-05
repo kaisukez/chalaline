@@ -29,7 +29,7 @@ module.exports.setProductAttributesInStock = async (event, context, callback) =>
     ...attributes
   } = JSON.parse(event.body)
 
-  const indexToUpdate = await findIndexOfProductInStock(storeName, branchName, productID)
+  const { index: indexToUpdate } = await findIndexOfProductInStock(storeName, branchName, productID)
   if (indexToUpdate === -1) {
     return {
       statusCode: 400,

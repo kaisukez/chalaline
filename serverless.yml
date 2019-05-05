@@ -136,6 +136,13 @@ functions:
           path: set-product-attributes-in-stock
           method: post
           cors: true
+  buyProductFromOnlineMarket:
+    handler: products/buyProductFromOnlineMarket.buyProductFromOnlineMarket
+    events:
+      - http:
+          path: buy-product-from-online-market
+          method: post
+          cors: true
 
   registerAsAdmin:
     handler: users/registerAsAdmin.registerAsAdmin

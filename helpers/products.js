@@ -17,12 +17,22 @@ const findIndexOfProductInStock = async (storeName, branchName, productID) => {
   }
 
   const result = await query(params)
+  if (result.Count === 0) {
+    return {
+      index: -1,
+      product: undefined
+    }
+  }
 
   const stocks = result.Items[0].stocks
 
   const index = stocks.map(stock => stock.productID).indexOf(productID)
+  const product = stocks[index]
 
-  return index
+  return {
+    index,
+    product
+  }
 }
 
 module.exports = {
