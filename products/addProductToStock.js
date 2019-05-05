@@ -103,7 +103,7 @@ module.exports.addProductToStock = async (event, context, callback) => {
         'Access-Control-Allow-Origin': '*', // Required for CORS support to work
       },
       body: JSON.stringify({
-        message: `[${productID}] already exists`
+        message: `productID[${productID}] already exists`
       }),
     }
   }
@@ -132,7 +132,7 @@ module.exports.addProductToStock = async (event, context, callback) => {
 
   try {
     const result = await update(params)
-    message = `[${productID}] was added to stock.`
+    message = `productID[${productID}] was added to stock.`
   } catch {
     message = `some error occur`
   }

@@ -18,7 +18,7 @@ module.exports.addProductToDatabase = async (event, context, callback) => {
 
   try {
     const result = await put(params)
-    message = `[${productID}] ${productName} was added to database.`
+    message = `productID[${productID}] ${productName} was added to database.`
   } catch {
     message = `some error occur`
   }

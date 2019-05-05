@@ -22,7 +22,7 @@ module.exports.removeProductInDatabase = async (event, context, callback) => {
   }
 
   if (errorMessage.length === 0)
-    message = `${productID} was removed from product table`
+    message = `productID[${productID}] was removed from product table`
   else
     message = 'some error occur'
 
