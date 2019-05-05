@@ -1,4 +1,4 @@
-const { query, update } = require('../helpers/index')
+const { query, update, put } = require('../helpers/index')
 
 const doesProductIDAlreadyExists = async (storeName, branchName, productID) => {
   const TableName = process.env.STORE_TABLE
@@ -68,7 +68,7 @@ const addProductToProductDatabase = async (productID, productDetail) => {
   try {
     const result = await put(params)
     success = true
-  } catch {
+  } catch (error) {
     success = false
   }
 

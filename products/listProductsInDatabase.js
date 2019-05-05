@@ -1,15 +1,34 @@
-const { scan } = require('../helpers/index')
+const { query, scan } = require('../helpers/index')
 
 module.exports.listProductsInDatabase = async (event, context, callback) => {
   const TableName = process.env.PRODUCT_TABLE
 
-  const params = {
-    TableName
+  const { queryStringParameters } = event
+
+  let product, products
+  if (queryStringParameters && queryStringParameters.productID) {
+    const { productID } = queryStringParameters
+    const params = {
+      TableName,
+      KeyConditionExpression: '#productID = :productID',
+      ExpressionAttributeNames: {
+        '#productID': 'productID'
+      },
+      ExpressionAttributeValues: {
+        ':productID': productID
+      }
+    }
+    const result = await query(params)
+    products = result.Items
+  } else {
+    const params = {
+      TableName
+    }
+    const result = await scan(params)
+    products = result.Items
   }
 
-  const result = await scan(params)
 
-  const products = result.Items
 
   const response = {
     statusCode: 200,
