@@ -1,4 +1,4 @@
-const { _delete } = require('../helpers/index')
+const { _delete } = require('../helpers/dynamodb')
 
 module.exports.removeProductInDatabase = async (event, context, callback) => {
   const TableName = process.env.PRODUCT_TABLE

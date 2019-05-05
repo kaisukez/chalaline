@@ -1,4 +1,4 @@
-const { _delete } = require('../helpers/index')
+const { _delete } = require('../helpers/dynamodb')
 
 module.exports.removeBranch = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE

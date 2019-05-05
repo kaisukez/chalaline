@@ -1,4 +1,4 @@
-const { query, scan } = require('../helpers/index')
+const { query, scan } = require('../helpers/dynamodb')
 
 module.exports.listProductsInDatabase = async (event, context, callback) => {
   const TableName = process.env.PRODUCT_TABLE

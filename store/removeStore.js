@@ -1,4 +1,4 @@
-const { _delete, query } = require('../helpers/index')
+const { _delete, query } = require('../helpers/dynamodb')
 
 const listAllBranch = async storeName => {
   const TableName = process.env.STORE_TABLE

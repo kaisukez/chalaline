@@ -1,4 +1,4 @@
-const { query } = require('../helpers/index')
+const { query } = require('../helpers/dynamodb')
 
 module.exports.listAllBranch = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE

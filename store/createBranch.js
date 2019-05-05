@@ -1,4 +1,4 @@
-const { put } = require('../helpers/index')
+const { put } = require('../helpers/dynamodb')
 
 module.exports.createBranch = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE

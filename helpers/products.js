@@ -1,4 +1,4 @@
-const { query } = require('./index')
+const { query } = require('./dynamodb')
 
 const findIndexOfProductInStock = async (storeName, branchName, productID) => {
   const TableName = process.env.STORE_TABLE

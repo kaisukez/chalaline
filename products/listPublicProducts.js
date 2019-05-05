@@ -1,4 +1,4 @@
-const { scan } = require('../helpers/index')
+const { scan } = require('../helpers/dynamodb')
 
 const filterOnlyPublicProduct = stores => {
   const newStores = stores

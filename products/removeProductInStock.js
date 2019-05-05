@@ -1,4 +1,4 @@
-const { update } = require('../helpers/index')
+const { update } = require('../helpers/dynamodb')
 const { findIndexOfProductInStock } = require('../helpers/products')
 
 module.exports.removeProductInStock = async (event, context, callback) => {

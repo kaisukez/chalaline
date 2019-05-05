@@ -129,6 +129,13 @@ functions:
           path: remove-product-in-stock
           method: post
           cors: true
+  setProductPublicity:
+    handler: products/setProductPublicity.setProductPublicity
+    events:
+      - http:
+          path: set-product-publicity
+          method: post
+          cors: true
 
   registerAsAdmin:
     handler: users/registerAsAdmin.registerAsAdmin

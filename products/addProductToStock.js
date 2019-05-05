@@ -1,4 +1,4 @@
-const { query, update, put } = require('../helpers/index')
+const { query, update, put } = require('../helpers/dynamodb')
 
 const doesProductIDAlreadyExists = async (storeName, branchName, productID) => {
   const TableName = process.env.STORE_TABLE
