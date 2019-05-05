@@ -129,11 +129,11 @@ functions:
           path: remove-product-in-stock
           method: post
           cors: true
-  setProductPublicity:
-    handler: products/setProductPublicity.setProductPublicity
+  setProductAttributesInStock:
+    handler: products/setProductAttributesInStock.setProductAttributesInStock
     events:
       - http:
-          path: set-product-publicity
+          path: set-product-attributes-in-stock
           method: post
           cors: true
 

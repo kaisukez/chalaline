@@ -1,14 +1,32 @@
 const { update } = require('../helpers/dynamodb')
 const { findIndexOfProductInStock } = require('../helpers/products')
 
-module.exports.setProductPublicity = async (event, context, callback) => {
+const generateUpdateExpression = (indexToUpdate, attributes) => {
+  let UpdateExpression = 'set '
+  Object.keys(attributes).forEach((attributeName, index) => {
+    UpdateExpression += `stocks[${indexToUpdate}].${attributeName} = :${attributeName}`
+    if (index !== Object.keys(attributes).length - 1)
+      UpdateExpression += ', '
+  })
+  return UpdateExpression
+}
+
+const generateExpressionAttributeValues = attributes => {
+  const ExpressionAttributeValues = {}
+  Object.keys(attributes).forEach(attributeName => {
+    ExpressionAttributeValues[`:${attributeName}`] = attributes[attributeName]
+  })
+  return ExpressionAttributeValues
+}
+
+module.exports.setProductAttributesInStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
   const {
     storeName,
     branchName,
     productID,
-    isPublic
+    ...attributes
   } = JSON.parse(event.body)
 
   const indexToUpdate = await findIndexOfProductInStock(storeName, branchName, productID)
@@ -24,16 +42,17 @@ module.exports.setProductPublicity = async (event, context, callback) => {
     }
   }
 
+  const UpdateExpression = generateUpdateExpression(indexToUpdate, attributes)
+  const ExpressionAttributeValues = generateExpressionAttributeValues(attributes)
+
   const params = {
     TableName,
     Key: {
       storeName,
       branchName
     },
-    UpdateExpression: `set stocks[${indexToUpdate}].isPublic = :isPublic`,
-    ExpressionAttributeValues: {
-      ':isPublic': isPublic
-    },
+    UpdateExpression,
+    ExpressionAttributeValues,
     ReturnValues: 'UPDATED_NEW'
   }
 
@@ -43,11 +62,12 @@ module.exports.setProductPublicity = async (event, context, callback) => {
   try {
     const result = await update(params)
   } catch (error) {
+    console.log(error)
     errorMessage.push(error.message)
   }
 
   if (errorMessage.length === 0)
-    message = `productID[${productID}] publicity was updated to ${isPublic}`
+    message = `productID[${productID}] attributes are updated`
   else
     message = 'some error occur'
 
