@@ -63,7 +63,7 @@ module.exports.removeProductInStock = async (event, context, callback) => {
   }
 
   if (errorMessage.length === 0)
-    message = `productID[${productID}] was removed from product table`
+    message = `productID[${productID}] was removed from stock`
   else
     message = 'some error occur'
 
