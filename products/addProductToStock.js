@@ -1,3 +1,4 @@
+const uuidv4 = require('uuid/v4')
 const { query, update, put } = require('../helpers/dynamodb')
 
 const doesProductIDAlreadyExists = async (storeName, branchName, productID) => {
@@ -78,12 +79,16 @@ const addProductToProductDatabase = async (productID, productDetail) => {
 module.exports.addProductToStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
-  const {
+  let {
     storeName,
     branchName,
     productID,
     ...optional
   } = JSON.parse(event.body)
+
+  if (!productID)
+    productID = uuidv4()
+  console.log(productID)
 
   const productDetail = optional.productDetail
   delete optional.productDetail
