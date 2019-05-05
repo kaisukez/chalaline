@@ -88,7 +88,6 @@ module.exports.addProductToStock = async (event, context, callback) => {
 
   if (!productID)
     productID = uuidv4()
-  console.log(productID)
 
   const productDetail = optional.productDetail
   delete optional.productDetail
