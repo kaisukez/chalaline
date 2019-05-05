@@ -1,26 +1,37 @@
 const { query, update } = require('../helpers/index')
 
-// const checkIfProductIDAlreadyExists = async (storeName, branchName, productID) => {
-//   const TableName = process.env.STORE_TABLE
+const doesProductIDAlreadyExists = async (storeName, branchName, productID) => {
+  const TableName = process.env.STORE_TABLE
 
-//   const params = {
-//     TableName,
-//     KeyConditionExpression: '#storeName = :storeName and #branchName = :branchName',
-//     ExpressionAttributeNames: {
-//       '#storeName': 'storeName',
-//       '#branchname': 'branchName'
-//     },
-//     ExpressionAttributeValues: {
-//       ':storeName': storeName,
-//       ':branchName': branchName
-//     },
-//     ProjectionExpression: 'stocks'
-//   }
+  const params = {
+    TableName,
+    KeyConditionExpression: '#storeName = :storeName and #branchName = :branchName',
+    ExpressionAttributeNames: {
+      '#storeName': 'storeName',
+      '#branchName': 'branchName'
+    },
+    ExpressionAttributeValues: {
+      ':storeName': storeName,
+      ':branchName': branchName
+    },
+    ProjectionExpression: 'stocks'
+  }
 
-//   const result = await query(params)
+  const result = await query(params)
 
-//   const stocks = result.Items[0]
-// }
+  const stocks = result.Items[0].stocks
+
+  let found = false
+  for (let i = 0; i < stocks.length; i++) {
+    console.log(stocks[i].productID, productID)
+    if (stocks[i].productID === productID) {
+      found = true
+      break
+    }
+  }
+
+  return found
+}
 
 module.exports.addProductToStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
@@ -32,7 +43,18 @@ module.exports.addProductToStock = async (event, context, callback) => {
     ...optional
   } = JSON.parse(event.body)
 
-  // await checkIfProductIDAlreadyExists(storeName, branchName, productID)
+  const found = await doesProductIDAlreadyExists(storeName, branchName, productID)
+  if(found) {
+    return {
+      statusCode: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+      },
+      body: JSON.stringify({
+        message: `[${productID}] already exists`
+      }),
+    }
+  }
 
   const params = {
     TableName,
