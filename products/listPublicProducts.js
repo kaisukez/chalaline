@@ -7,6 +7,19 @@ const filterOnlyPublicProduct = stores => {
       return store
     })
     .filter(store => store.stocks.length !== 0)
+    .map(store => {
+      let stock = store.stocks.map(stock =>{
+        stock.storeID = store.storeID
+        stock.storeName = store.storeName
+        stock.branchName = store.branchName
+        return stock
+      })
+      return stock
+    })
+    .reduce(function(pre, cur) {
+      return pre.concat(cur);
+    })
+  // console.log("fff",newStores)
   return newStores
 }
 
@@ -26,7 +39,7 @@ module.exports.listPublicProducts = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
   const { storeName } = JSON.parse(event.body)
-
+  // const storeName = ""
   const params = {
     TableName,
     FilterExpression: '#storeName <> :storeName',
