@@ -38,17 +38,17 @@ const filterOnlyPublicProduct = stores => {
 module.exports.listPublicProducts = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
 
-  // const { storeName } = JSON.parse(event.body)
+  const { storeName } = JSON.parse(event.body)
   // const storeName = ""
   const params = {
     TableName,
-    // FilterExpression: '#storeName <> :storeName',
-    // ExpressionAttributeNames: {
-    //   '#storeName': 'storeName',
-    // },
-    // ExpressionAttributeValues: {
-    //   ':storeName': storeName,
-    // },
+    FilterExpression: '#storeName <> :storeName',
+    ExpressionAttributeNames: {
+      '#storeName': 'storeName',
+    },
+    ExpressionAttributeValues: {
+      ':storeName': storeName,
+    },
     ProjectionExpression: 'storeID, storeName, branchName, stocks'
   }
 

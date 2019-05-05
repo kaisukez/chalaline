@@ -113,7 +113,7 @@ functions:
     events:
       - http:
           path: list-public-products
-          method: get
+          method: post
           cors: true
   removeProductInDatabase:
     handler: products/removeProductInDatabase.removeProductInDatabase
