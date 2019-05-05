@@ -23,7 +23,6 @@ const doesProductIDAlreadyExists = async (storeName, branchName, productID) => {
 
   let found = false
   for (let i = 0; i < stocks.length; i++) {
-    console.log(stocks[i].productID, productID)
     if (stocks[i].productID === productID) {
       found = true
       break
