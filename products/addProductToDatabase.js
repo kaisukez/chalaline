@@ -1,9 +1,13 @@
+const uuidv4 = require('uuid/v4')
 const { put } = require('../helpers/dynamodb')
 
 module.exports.addProductToDatabase = async (event, context, callback) => {
   const TableName = process.env.PRODUCT_TABLE
 
-  const { productID, productName, ...optional } = JSON.parse(event.body)
+  let { productID, productName, ...optional } = JSON.parse(event.body)
+
+  if (!productID)
+    productID = uuidv4()
 
   const params = {
     TableName,
