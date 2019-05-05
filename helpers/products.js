@@ -1,4 +1,4 @@
-const { query } = require('./dynamodb')
+const { query, scan } = require('./dynamodb')
 
 const findIndexOfProductInStock = async (storeName, branchName, productID) => {
   const TableName = process.env.STORE_TABLE
@@ -35,6 +35,29 @@ const findIndexOfProductInStock = async (storeName, branchName, productID) => {
   }
 }
 
+const getProductDictionary = async () => {
+  const TableName = process.env.PRODUCT_TABLE
+
+  const params = {
+    TableName
+  }
+
+  const result = await scan(params)
+
+  const items = result.Items
+
+  const dictionary = {}
+  items.forEach(item => {
+    dictionary[item.productID] = {
+      ...item
+    }
+    delete dictionary[item.productID].productID
+  })
+
+  return dictionary
+}
+
 module.exports = {
-  findIndexOfProductInStock
+  findIndexOfProductInStock,
+  getProductDictionary
 }

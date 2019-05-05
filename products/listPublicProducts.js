@@ -1,4 +1,5 @@
 const { scan } = require('../helpers/dynamodb')
+const { getProductDictionary } = require('../helpers/products')
 
 const filterOnlyPublicProduct = stores => {
   const newStores = stores
@@ -57,13 +58,20 @@ module.exports.listPublicProducts = async (event, context, callback) => {
   const stores = result.Items
   const filtered = filterOnlyPublicProduct(stores)
 
+  const productDictionary = await getProductDictionary()
+
+  const publicProducts = filtered.map(product => ({
+    ...product,
+    ...productDictionary[product.productID]
+  }))
+
   const response = {
     statusCode: 200,
     headers: {
       'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
     body: JSON.stringify({
-      publicProducts: filtered
+      publicProducts
     }),
   }
 

@@ -1,4 +1,5 @@
 const { query } = require('../helpers/dynamodb')
+const { getProductDictionary } = require('../helpers/products')
 
 module.exports.listProductsInStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
@@ -21,7 +22,12 @@ module.exports.listProductsInStock = async (event, context, callback) => {
 
   const result = await query(params)
 
-  const stocks = result.Items[0].stocks
+  const productDictionary = await getProductDictionary()
+
+  const stocks = result.Items[0].stocks.map(product => ({
+    ...product,
+    ...productDictionary[product.productID]
+  }))
 
   const response = {
     statusCode: 200,
