@@ -9,9 +9,26 @@ module.exports.listAllStore = async (event, context, callback) => {
 
   const result = await scan(params)
 
-  const stores = result.Items.map(store => store.storeName)
+  const stores = result.Items.map(store => ({
+    storeName: store.storeName,
+    branchName: store.branchName
+  }))
+  // console.log(stores)
 
-  const uniqueStores = [...new Set(stores)].sort()
+  const branches = {}
+  stores.forEach(store => {
+    if (!branches[store.storeName])
+      branches[store.storeName] = [store.branchName]
+    else
+      branches[store.storeName].push(store.branchName)
+  })
+  // console.log(branches)
+
+  const newStores = Object.keys(branches).map(storeName => ({
+    storeName,
+    branches: branches[storeName]
+  }))
+  // const uniqueStores = [...new Set(stores)].sort()
   
   const response = {
     statusCode: 200,
@@ -19,7 +36,7 @@ module.exports.listAllStore = async (event, context, callback) => {
       'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
     body: JSON.stringify({
-      stores: uniqueStores
+      stores: newStores
     }),
   }
 
