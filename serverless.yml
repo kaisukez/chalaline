@@ -143,6 +143,20 @@ functions:
           path: buy-product-from-online-market
           method: post
           cors: true
+  listLowQuantityProductsInStock:
+    handler: products/listLowQuantityProductsInStock.listLowQuantityProductsInStock
+    events:
+      - http:
+          path: list-low-quantity-products-in-stock
+          method: post
+          cors: true
+  listLowQuantityProductsInStore:
+    handler: products/listLowQuantityProductsInStore.listLowQuantityProductsInStore
+    events:
+      - http:
+          path: list-low-quantity-products-in-store
+          method: post
+          cors: true
 
   registerAsAdmin:
     handler: users/registerAsAdmin.registerAsAdmin
