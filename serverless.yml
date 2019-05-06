@@ -156,6 +156,20 @@ functions:
           path: login
           method: post
           cors: true
+  resendConfirmationCode:
+    handler: users/resendConfirmationCode.resendConfirmationCode
+    events:
+      - http:
+          path: resend-confirmation-code
+          method: post
+          cors: true
+  confirmUser:
+    handler: users/confirmUser.confirmUser
+    events:
+      - http:
+          path: confirm-user
+          method: post
+          cors: true
 
 
 plugins:
