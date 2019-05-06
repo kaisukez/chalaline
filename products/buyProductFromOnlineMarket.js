@@ -1,7 +1,7 @@
 const { update } = require('../helpers/dynamodb')
 const { findIndexOfProductInStock } = require('../helpers/products')
 
-const updateProductQuantity = async (storeName, branchName, productID, quantity) => {
+const updateProductQuantity = async (storeName, branchName, productID, quantity, price) => {
   const TableName = process.env.STORE_TABLE
 
   const { index } = await findIndexOfProductInStock(storeName, branchName, productID)
@@ -38,7 +38,8 @@ const updateProductQuantity = async (storeName, branchName, productID, quantity)
           productID,
           quantity,
           notiQuantity: Math.round(quantity * 0.2),
-          isPublic: false
+          isPublic: false,
+          price
         }]
       },
       ReturnValues: 'UPDATED_NEW'
@@ -99,10 +100,11 @@ module.exports.buyProductFromOnlineMarket = async (event, context, callback) => 
     if (productInStock) {
       quantityInStock = productInStock.quantity
     }
-    await updateProductQuantity(buyFromStoreName, buyFromBranchName, productID, productToBuy.quantity - quantity)
-    await updateProductQuantity(storeName, branchName, productID, quantityInStock + quantity)
+    console.log(productToBuy.price)
+    await updateProductQuantity(buyFromStoreName, buyFromBranchName, productID, productToBuy.quantity - quantity, productToBuy.price)
+    await updateProductQuantity(storeName, branchName, productID, quantityInStock + quantity, productToBuy.price)
   } catch (error) {
-    // console.log(error)
+  // console.log(error)
   }
   
   const response = {

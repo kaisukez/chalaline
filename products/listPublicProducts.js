@@ -17,7 +17,7 @@ const filterOnlyPublicProduct = stores => {
       })
       return stock
     })
-    .reduce(function(pre, []) {
+    .reduce(function(pre, cur=[]) {
       return pre.concat(cur);
     })
   // console.log("fff",newStores)
