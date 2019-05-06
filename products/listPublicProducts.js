@@ -17,7 +17,7 @@ const filterOnlyPublicProduct = stores => {
       })
       return stock
     })
-    .reduce(function(pre, cur) {
+    .reduce(function(pre, []) {
       return pre.concat(cur);
     })
   // console.log("fff",newStores)
@@ -54,6 +54,7 @@ module.exports.listPublicProducts = async (event, context, callback) => {
   }
 
   const result = await scan(params)
+  console.log(result)
 
   const stores = result.Items
   const filtered = filterOnlyPublicProduct(stores)

@@ -133,13 +133,19 @@ module.exports.addProductToStock = async (event, context, callback) => {
   }
 
   let message
+  const errorMessage = []
 
   try {
     const result = await update(params)
-    message = `productID[${productID}] was added to stock.`
   } catch (error) {
-    message = `some error occur`
+    errorMessage.push(error.message)
   }
+
+  
+  if (errorMessage.length === 0)
+    message = `productID[${productID}] was added to stock.`
+  else
+    message = `some error occur`
 
   const response = {
     statusCode: 200,

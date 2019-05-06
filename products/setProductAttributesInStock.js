@@ -62,7 +62,6 @@ module.exports.setProductAttributesInStock = async (event, context, callback) =>
   try {
     const result = await update(params)
   } catch (error) {
-    console.log(error)
     errorMessage.push(error.message)
   }
 

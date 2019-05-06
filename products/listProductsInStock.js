@@ -21,6 +21,7 @@ module.exports.listProductsInStock = async (event, context, callback) => {
   }
 
   const result = await query(params)
+  console.log(result)
 
   const productDictionary = await getProductDictionary()
 
