@@ -1,8 +1,9 @@
 const AWS = require('aws-sdk')
-    AWS.config.update({
-        region: "ap-southeast-1",
-    });
+AWS.config.update({
+    region: "ap-southeast-1",
+});
 const cognito = new AWS.CognitoIdentityServiceProvider({apiVersion: '2016-04-18'})
+const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 const poolID = require('../pool-id.json')
 
 async function getUser (username) {
@@ -56,9 +57,25 @@ function convertToDictUser(awsUser) {
     return user
 }
 
+function get_cognitoUser(username) {
+    var poolData = { UserPoolId : poolID["UserPoolId"],
+        ClientId : poolID["appClientId"]
+    };
+    var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+    var userData = {
+        // Username : authenticationData['Username'],
+        Username : username,
+        Pool : userPool
+    };
+    var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+    return cognitoUser
+}
+
+
 module.exports = { 
     getUser,
     filterRoles,
     convertToAwsUser,
-    convertToDictUser
+    convertToDictUser,
+    get_cognitoUser
 };

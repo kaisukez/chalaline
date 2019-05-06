@@ -186,6 +186,42 @@ functions:
           path: get-user
           method: get
           cors: true
+  logout:
+    handler: users/logout.logout
+    events:
+      - http:
+          path: logout
+          method: post
+          cors: true
+  login:
+    handler: users/login.login
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+  resendConfirmationCode:
+    handler: users/resendConfirmationCode.resendConfirmationCode
+    events:
+      - http:
+          path: resend-confirmation-code
+          method: post
+          cors: true
+  confirmUser:
+    handler: users/confirmUser.confirmUser
+    events:
+      - http:
+          path: confirm-user
+          method: post
+          cors: true
+
+  changePassword:
+    handler: users/changePassword.changePassword
+    events:
+      - http:
+          path: change-password
+          method: post
+          cors: true
 
 
 plugins:
