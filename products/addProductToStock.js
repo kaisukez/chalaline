@@ -137,7 +137,7 @@ module.exports.addProductToStock = async (event, context, callback) => {
   try {
     const result = await update(params)
     message = `productID[${productID}] was added to stock.`
-  } catch {
+  } catch (error) {
     message = `some error occur`
   }
 
