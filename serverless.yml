@@ -149,6 +149,13 @@ functions:
           path: logout
           method: post
           cors: true
+  login:
+    handler: users/login.login
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
 
 
 plugins:
