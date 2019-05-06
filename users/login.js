@@ -27,7 +27,7 @@ async function authenticateUser(authenticationData) {
             return {
                 'accessToken': accessToken,
                 'idToken':idToken,
-                'message': `ADD  ${authenticationData['Username']} SUCCESSFULL`
+                'message': `LOGIN ${authenticationData['Username']} SUCCESSFULL`
             }
         },
         onFailure: function(err) {

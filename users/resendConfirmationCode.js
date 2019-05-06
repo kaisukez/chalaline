@@ -13,18 +13,20 @@ AWS.config.apiVersions = {
 const userHelper = require('../helpers/user')
 
 module.exports.resendConfirmationCode = async (event, context, callback) => {
-    var msg = undefined
+    var msg = 'sucess'
     var user = JSON.parse(event.body)
     console.log(user)
     var cognitoUser = userHelper.get_cognitoUser(user['Username']);
-    console.log(cognitoUser)
-    cognitoUser.resendConfirmationCode(function(err, result) {
+    // console.log(cognitoUser)
+    await cognitoUser.resendConfirmationCode(function(err, result) {
         if (err) {
             console.log(err);
-            msg = `SOME ERROR OCCUR ${err}`
-           }
-           msg = 'Success'
-           console.log(result);
+            const msg = `SOME ERROR OCCUR ${err}`
+        } 
+        // else {
+        //     // const msg = 'Success'
+        //     // console.log(msg);
+        // }
     });
     console.log(msg)
     const response = {
@@ -32,7 +34,9 @@ module.exports.resendConfirmationCode = async (event, context, callback) => {
         headers: {
             'Access-Control-Allow-Origin': '*', // Required for CORS support to work
         },
-        body: JSON.stringify(msg),
+        body: JSON.stringify({
+            'message': msg
+        }),
     }
     return response
 }
