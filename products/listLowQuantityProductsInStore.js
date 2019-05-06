@@ -1,4 +1,5 @@
 const { scan } = require('../helpers/dynamodb')
+const { getProductDictionary } = require('../helpers/products')
 
 module.exports.listLowQuantityProductsInStore = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
@@ -19,14 +20,17 @@ module.exports.listLowQuantityProductsInStore = async (event, context, callback)
   const result = await scan(params)
 
   const stocks = result.Items
-  console.log(stocks)
 
+  const productDictionary = await getProductDictionary()
   const lowQuantityProducts = stocks.map(branch => {
-    branch.stocks = branch.stocks.filter(product => product.quantity <= product.notiQuantity)
+    branch.stocks = branch.stocks
+      .filter(product => product.quantity <= product.notiQuantity)
+      .map(product => ({
+        ...product,
+        ...productDictionary[product.productID]
+      }))
     return branch
   })
-
-  // const lowQuantityProducts = stocks.filter(product => product.quantity <= product.notiQuantity)
 
   const response = {
     statusCode: 200,
