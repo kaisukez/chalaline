@@ -21,7 +21,7 @@ module.exports.createBranch = async (event, context, callback) => {
   try {
     const result = await put(params)
     message = `${branchName} branch was created.`
-  } catch {
+  } catch (error) {
     message = `some error occur`
   }
 
