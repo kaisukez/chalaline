@@ -1,4 +1,5 @@
 const { query } = require('../helpers/dynamodb')
+const { getProductDictionary } = require('../helpers/products')
 
 module.exports.listLowQuantityProductsInStock = async (event, context, callback) => {
   const TableName = process.env.STORE_TABLE
@@ -25,13 +26,19 @@ module.exports.listLowQuantityProductsInStock = async (event, context, callback)
 
   const lowQuantityProducts = stocks.filter(product => product.quantity <= product.notiQuantity)
 
+  const productDictionary = await getProductDictionary()
+  const lowQuantityProductsWithMoreAttributes = lowQuantityProducts.map(product => ({
+    ...product,
+    ...productDictionary[product.productID]
+  }))
+
   const response = {
     statusCode: 200,
     headers: {
       'Access-Control-Allow-Origin': '*', // Required for CORS support to work
     },
     body: JSON.stringify({
-      products: lowQuantityProducts
+      products: lowQuantityProductsWithMoreAttributes
     }),
   }
 
