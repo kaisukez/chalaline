@@ -28,10 +28,10 @@ module.exports.logout = async (event, context, callback) => {
     var user = JSON.parse(event.body)
     console.log(user)
     try {
-        var cognitoUser = userHelper.get_cognitoUser(user['username']);
+        var cognitoUser = userHelper.get_cognitoUser(user['Username']);
         await logoutHelper(cognitoUser);
         // var params = await addUser(user)
-        msg = `LOGOUT ${user['username']} SUCCESSFULL`
+        msg = `LOGOUT ${user['Username']} SUCCESSFULL`
     } catch (err) {
         msg = `SOME ERROR OCCUR ${err}`
     }
