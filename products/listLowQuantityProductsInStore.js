@@ -1,4 +1,4 @@
-const { scan } = require('../helpers/dynamodb')
+const { query } = require('../helpers/dynamodb')
 const { getProductDictionary } = require('../helpers/products')
 
 module.exports.listLowQuantityProductsInStore = async (event, context, callback) => {
@@ -8,7 +8,7 @@ module.exports.listLowQuantityProductsInStore = async (event, context, callback)
 
   const params = {
     TableName,
-    FilterExpression: "#storeName = :storeName",
+    KeyConditionExpression: "#storeName = :storeName",
     ExpressionAttributeNames: {
       '#storeName': 'storeName'
     },
@@ -17,7 +17,7 @@ module.exports.listLowQuantityProductsInStore = async (event, context, callback)
     }
   }
 
-  const result = await scan(params)
+  const result = await query(params)
 
   const stocks = result.Items
 
