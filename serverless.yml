@@ -171,6 +171,14 @@ functions:
           method: post
           cors: true
 
+  changePassword:
+    handler: users/changePassword.changePassword
+    events:
+      - http:
+          path: change-password
+          method: post
+          cors: true
+
 
 plugins:
   - serverless-offline

@@ -1,4 +1,6 @@
 {
     "UserPoolId": "ap-southeast-1_gUuZjcbUs",
-    "appClientId":"7jl4l5kpms6j945v98tbl70njp"
+    "appClientId":"7jl4l5kpms6j945v98tbl70njp",
+    "IdentityPoolId": "ap-southeast-1:861aba51-d1ef-4568-9fa9-b493bd4adc1d",
+    "region": "ap-southeast-1"
 }

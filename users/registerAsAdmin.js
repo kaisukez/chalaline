@@ -61,9 +61,9 @@ module.exports.registerAsAdmin = async (event, context, callback) => {
   return response
 }
 
-signUp({
-  "email": "test-signin5@hotmail.com",
-  "password": "1q2w3e4r",
-  "custom:custom:StoreID" : "1"
+// signUp({
+//   "email": "test-signin5@hotmail.com",
+//   "password": "1q2w3e4r",
+//   "custom:custom:StoreID" : "1"
 
-})
+// })

@@ -26,12 +26,14 @@ async function authenticateUser(authenticationData) {
             console.log('success')
             return {
                 'accessToken': accessToken,
-                'idToken':idToken
+                'idToken':idToken,
+                'message': `ADD  ${authenticationData['Username']} SUCCESSFULL`
             }
         },
         onFailure: function(err) {
-            console.log('ERROR')
             console.log(err)
+            return {'message':`SOME ERROR OCCUR ${err}`}
+            // console.log('ERROR')
             // alert(err);
         },
 
@@ -44,14 +46,15 @@ module.exports.login = async (event, context, callback) => {
     var user = JSON.parse(event.body)
     var body = {}
     try {
-        const token = authenticateUser( user)
-        msg = `ADD  ${user['Username']} SUCCESSFULL`
-        body['token'] = token
+        var token = await authenticateUser(user)
+        body['message'] = `ADD  ${user['Username']} SUCCESSFULL`
+        // body = token
     } catch (err) {
-        msg = `SOME ERROR OCCUR ${err}`
+        body['message'] = `SOME ERROR OCCUR ${err}`
+        console.log(err)
+        // msg = `SOME ERROR OCCUR ${err}`
     }
-    body['msg'] = msg
-
+    console.log('body',body)
     const response = {
         statusCode: 200,
         headers: {
