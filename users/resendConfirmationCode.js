@@ -10,24 +10,7 @@ AWS.config.apiVersions = {
     cognitoidentity: '2014-06-30',
     // other service API versions
 };
-
-
-const poolID = require('../pool-id.json')
 const userHelper = require('../helpers/user')
-// AmazonCognitoIdentity.AuthenticationDetails
-
-const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
-
-
-// function confirmRegis(cognitoUser) {
-//     cognitoUser.resendConfirmationCode(function(err, result) {
-//         if (err) {
-//             console.log(err);
-//             return;
-//            }
-//            console.log(result);
-//     });
-// }
 
 module.exports.resendConfirmationCode = async (event, context, callback) => {
     var msg = undefined
@@ -53,4 +36,3 @@ module.exports.resendConfirmationCode = async (event, context, callback) => {
     }
     return response
 }
-// confirmRegis(userHelper.get_cognitoUser('bunditnoikiku'))
