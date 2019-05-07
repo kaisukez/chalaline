@@ -1,3 +1,6 @@
+## Link to website
+http://charaline.s3-website-ap-southeast-1.amazonaws.com/
+
 ## Setup
 ### Install serverless framework
 ```
